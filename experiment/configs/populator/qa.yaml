@@ -1,0 +1,2 @@
+_id: "name-${.name}"
+name: "qa"

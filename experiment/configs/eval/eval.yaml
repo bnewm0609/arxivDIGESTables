@@ -1,0 +1,8 @@
+metrics:
+  - name: schema_recall
+    align_method_name: sentence_transformer-columns
+    sim_threshold: 0.45
+  - name: schema_recall
+    align_method_name: sentence_transformer-values
+    sim_threshold: 0.45  
+  - diversity

@@ -1,0 +1,7 @@
+name: "2308_high_quality"
+_id: "${extract_path:${.path},1}"
+path: data/arxiv_tables_2308_high_quality
+papers_path: "${.path}/papers.jsonl"
+tables_path: "${.path}/tables.jsonl"
+full_texts_path: "data/full_texts"
+type: "full_texts"

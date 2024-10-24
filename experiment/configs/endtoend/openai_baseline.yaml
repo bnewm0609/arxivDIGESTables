@@ -1,0 +1,3 @@
+_id: "name-${.name}"
+name: "openai_baseline"
+model: "gpt4"

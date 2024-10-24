@@ -1,0 +1,16 @@
+defaults:
+ - _self_
+ - data: abstracts
+ - eval: eval
+ - endtoend: null
+ - schematizer: null
+ - populator: null
+debug: False
+wandb: False
+endtoend: null
+schematizer: null
+populator: null
+timestamp: ???
+mode: ???
+results_path: ???
+notes: null

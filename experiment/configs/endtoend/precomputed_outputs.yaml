@@ -1,0 +1,3 @@
+_id: "name-${.name}_${extract_path:${.path},1}"
+name: "precomp_outputs"
+path: ???

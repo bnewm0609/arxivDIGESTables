@@ -1,0 +1,6 @@
+name: "abstracts"
+_id: "${extract_path:${.path},1}"
+path: data/debug_abstracts
+papers_path: "${.path}/papers.jsonl"
+tables_path: "${.path}/tables.jsonl"
+type: debug_abstracts
