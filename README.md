@@ -2,7 +2,8 @@
 
 
 ## How do I access the data?
-The data is available on huggingface. The tables are stored in a format that does not play nice with huggingface's default dataset builder. Rather than using `load_dataset(blnewman/arxivDIGESTables)`, you should download the data directly from: [huggingface.co/datasets/blnewman/arxivDIGESTables](https://huggingface.co/datasets/blnewman/arxivDIGESTables/tree/main).
+The data is available on [huggingface](https://huggingface.co/datasets/blnewman/arxivDIGESTables). The tables are stored in a format that does not play nice with huggingface's default dataset builder. Rather than using `load_dataset("blnewman/arxivDIGESTables
+)`, you should download the data directly from: [huggingface.co/datasets/blnewman/arxivDIGESTables](https://huggingface.co/datasets/blnewman/arxivDIGESTables/tree/main).
 
 For the high quality data, you should download `papers.jsonl`, `tables.jsonl`, and `full_texts.jsonl.gz`. 
 If you want more tables that are less stringently filtered and do not have associated full texts, you can download `papers_medium_quality.jsonl` and `tables_medium_quality.jsonl`.

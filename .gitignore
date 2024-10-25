@@ -1,7 +1,6 @@
 titles_ids_cache.sqlite
 outputs/
 results/
-predictions/
 
 notebooks/.ipynb_checkpoints
 lightning_logs/
