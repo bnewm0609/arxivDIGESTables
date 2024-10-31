@@ -2,8 +2,7 @@
 
 
 ## How do I access the data?
-The data is available on [huggingface](https://huggingface.co/datasets/blnewman/arxivDIGESTables). The tables are stored in a format that does not play nice with huggingface's default dataset builder. Rather than using `load_dataset("blnewman/arxivDIGESTables
-)`, you should download the data directly from: [huggingface.co/datasets/blnewman/arxivDIGESTables](https://huggingface.co/datasets/blnewman/arxivDIGESTables/tree/main).
+The data is available on [huggingface](https://huggingface.co/datasets/blnewman/arxivDIGESTables). The tables are arbitrary json objects, so they don't play nicely with huggingface's `load_dataset` method. The recommended way to access the data is to download individual files from [huggingface.co/datasets/blnewman/arxivDIGESTables](https://huggingface.co/datasets/blnewman/arxivDIGESTables/tree/main).
 
 For the high quality data, you should download `papers.jsonl`, `tables.jsonl`, and `full_texts.jsonl.gz`. 
 If you want more tables that are less stringently filtered and do not have associated full texts, you can download `papers_medium_quality.jsonl` and `tables_medium_quality.jsonl`.
@@ -16,6 +15,22 @@ If you want more tables that are less stringently filtered and do not have assoc
     - `in_text_ref`: a list of paragraphs where the table is refered to in the main text
     - `arxiv_id`: the arxiv id of the paper that table comes from
 - `full_text.jsonl.gz`contains the full texts for the papers in `papers.jsonl`.
+
+
+ If you want to preview the tables, you can use huggingface dataset's loader. In this case, the tables are stored as json strings and need to be parsed:
+ ```python
+ import json
+ from datasets import load_dataset
+
+ # high quality
+ tables = load_dataset("blnewman/arxivDIGESTables")
+
+# load the table from json string. Not necessary if you download `tables.jsonl` directly.
+print(json.loads(tables["validation"]["table"][0]))
+
+# medium quality
+ arxivdigestables_medium = load_dataset("blnewman/arxivDIGESTables", "medium_quality")
+ ```
 
 For information on curating the dataset, see the `data` directory
 
@@ -30,7 +45,7 @@ Example:
 ```
 
 ## How do I run the evaluation metric?
-To run `DecontextAlign` on generated tables:
+To run `DecontextEval` on generated tables:
 
 First, install the requirements `pip install -r requirements.txt`.
 If necessary, add your together.ai API key to your environment. (e.g. `os.environ["TOGETHER_API_KEY"] = ...`)
@@ -60,3 +75,14 @@ python metric/run_eval.py --gold_tables hf_dataset/tables.jsonl --pred_tables pr
 ```
 
 The contents of `<out_file>` will be identical to the passed `<path_to_predicted_tables>`, except each json object will have an additional key `"scores"`, which contains the `recall` (the proportion of matched columns), any `alignment` that was produced along with the score for that alignment, and the passed `featurizer`, `scorer` and `threshold`, all of which can help with organizing results. See `predictions/predictions_decontext_with_scores.jsonl` for an example.
+
+## Citation
+```
+@article{newman2024arxivdigestables,
+      title={ArxivDIGESTables: Synthesizing Scientific Literature into Tables using Language Models}, 
+      author={Benjamin Newman and Yoonjoo Lee and Aakanksha Naik and Pao Siangliulue and Raymond Fok and Juho Kim and Daniel S. Weld and Joseph Chee Chang and Kyle Lo},
+      year={2024},
+      journal={arXiv preprint},
+      url={https://arxiv.org/abs/2410.22360}, 
+}
+```
