@@ -20,8 +20,9 @@ After running, the results of each try and the path will be output to the termin
 We've included a sample dataset with 75 sets of papers to compare in the `../data/sample_data_with_in_context_examples/` directory. To generate tables with this subset, you can run the following from the project root directory:
 ```bash
 pip install -e .
+cd experiment/paper_comparison/
 
-OPENAI_API_KEY="XXXXX" python experiment/paper_comparison/run_batch.py endtoend=ours_outputs data=abstracts data.path=data/sample_data_with_in_context_examples  data.dataset_path=data/sample_data_with_in_context_examples/dataset_with_ics.jsonl
+OPENAI_API_KEY="XXXXX" python run_batch.py endtoend=ours_outputs data=abstracts data.path=data/sample_data_with_in_context_examples  data.dataset_path=data/sample_data_with_in_context_examples/dataset_with_ics.jsonl
 ```
 
 
