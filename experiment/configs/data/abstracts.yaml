@@ -1,6 +1,11 @@
 name: "abstracts"
 _id: "${extract_path:${.path},1}"
-path: data/debug_abstracts
+# path: data/arxiv_tables_high_quality_v2
+# path: data/highest_quality_tables_1k
+path: data/metric_validation_0
+# path: data/arxiv_tables_2308_high_quality
 papers_path: "${.path}/papers.jsonl"
+# papers_path: "${.path}/papers_expanded.jsonl"
 tables_path: "${.path}/tables.jsonl"
+dataset_path: "${.path}/dataset.jsonl"
 type: debug_abstracts

@@ -16,11 +16,21 @@ After running, the results of each try and the path will be output to the termin
  - `results/{args.data._id}/{table_id}/{args.endtoend.model_type}/{args.endtoend}`: `retry` number of files named with `try_{retry_idx}.json` containing `num_commonality` number of tables.
  - `commands.txt`: a list of commands that were run to obtain the results in the directory. Most recent at the bottom.
 
+
+We've included a sample dataset with 75 sets of papers to compare in the `../data/sample_data_with_in_context_examples/` directory. To generate tables with this subset, you can run the following from the project root directory:
+```bash
+pip install -e .
+
+OPENAI_API_KEY="XXXXX" python experiment/paper_comparison/run_batch.py endtoend=ours_outputs data=abstracts data.path=data/sample_data_with_in_context_examples  data.dataset_path=data/sample_data_with_in_context_examples/dataset_with_ics.jsonl
+```
+
+
+
 ## Code Structure
 - `paper_comparison/run_batch.py`: Run experiment with total input data and save predicted tables
 - `paper_comparison/endtoend.py`: Transform collections of papers into tables (with baseline prompting and our prompting)
 - `paper_comparison/generation.py`: Various generation utilities
-- `data/prompt_ver3.json`: Prompts used in current experiment setup (Past prompts are in `data/prompt_ver2.json`)
+- `data/prompt_ver3.json`: Prompts used in current experiment setup
 
 ## Post Analysis
 

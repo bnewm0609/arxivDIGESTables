@@ -1,7 +1,7 @@
-name: "2308_high_quality"
+name: "metric_validation_0_full_texts"
 _id: "${extract_path:${.path},1}"
-path: data/arxiv_tables_2308_high_quality
+path: data/metric_validation_0_full_texts
 papers_path: "${.path}/papers.jsonl"
 tables_path: "${.path}/tables.jsonl"
-full_texts_path: "data/full_texts"
+full_texts_path: "${.path}/full_texts.jsonl"
 type: "full_texts"

@@ -1,0 +1,7 @@
+_id: "name-${.name}"
+name: "baseline_outputs"
+prompt_path: "data/prompt_ver3.json"
+model_type: "mixtral"
+max_length: 60
+num_commonality: 1
+baseline_type: ["single_call"]

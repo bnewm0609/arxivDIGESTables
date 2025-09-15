@@ -1,15 +1,19 @@
 defaults:
- - _self_
- - data: abstracts
- - eval: eval
- - endtoend: null
- - schematizer: null
- - populator: null
+  - _self_
+#  - data: abstracts
+  - data: full_texts
+  - eval: eval
+  - endtoend: "ours_outputs"
+#  - attribute_gen_method: "single_call"
+  # - paper_loop: "multiple"
+retry_type: "shuffle"
+difficulty: "ics_caption"
+handle_error: False
 debug: False
 wandb: False
 endtoend: null
-schematizer: null
-populator: null
+attribute_gen_method: null
+paper_loop: null
 timestamp: ???
 mode: ???
 results_path: ???
